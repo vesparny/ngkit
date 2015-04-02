@@ -1,8 +1,8 @@
 # [angular-kickstart](http://vesparny.github.io/angular-kickstart/)
 
-[![Build Status](https://secure.travis-ci.org/vesparny/angular-kickstart.svg)](http://travis-ci.org/vesparny/angular-kickstart)
-
 **Brought to you by [Alessandro Arnodo](http://alessandro.arnodo.net) [[@vesparny](https://twitter.com/vesparny)]**
+
+[![Build Status](https://secure.travis-ci.org/vesparny/angular-kickstart.svg)](http://travis-ci.org/vesparny/angular-kickstart)
 
 [![devDependency Status](https://david-dm.org/castle-dev/angular-kickstart/dev-status.svg)](https://david-dm.org/castle-dev/angular-kickstart#info=devDependencies)
 
