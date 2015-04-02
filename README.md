@@ -4,7 +4,7 @@
 
 **Brought to you by [Alessandro Arnodo](http://alessandro.arnodo.net) [[@vesparny](https://twitter.com/vesparny)]**
 
-[![Dev dependency status](https://david-dm.org/vesparny/angular-kickstart/dev-status.png)](https://david-dm.org/vesparny/angular-kickstart#info=devDependencies "Dependency status")
+[![devDependency Status](https://david-dm.org/castle-dev/angular-kickstart/dev-status.svg)](https://david-dm.org/castle-dev/angular-kickstart#info=devDependencies)
 
 **Speed up your [AngularJS](http://angularjs.org) development with a complete and scalable gulpjs based build system that scaffolds the project for you. Just focus on your app, angular-kickstart will take care of the rest.**
 ***
