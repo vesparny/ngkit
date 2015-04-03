@@ -1,6 +1,7 @@
 'use strict';
 
-var baseDir = 'client';
+var baseDir = 'client',
+    buildDir = 'build';
 
 module.exports = {
 
@@ -9,10 +10,10 @@ module.exports = {
     baseDir + '/src/vendor/angular/angular.js',
     baseDir + '/src/vendor/angular-mocks/angular-mocks.js',
     baseDir + '/src/vendor/angular-ui-router/release/angular-ui-router.js',
-    baseDir + '/src/app/**/*.js',
-    baseDir + '/src/common/**/*.js',
-    'build/tmp/*.js',
-    baseDir + '/test/unit/**/*.spec.js'
+    baseDir + '/test/unit/**/*.spec.js',
+    buildDir + '/tmp/app/**/*.js',
+    buildDir + '/tmp/common/**/*.js',
+    buildDir + '/tmp/templates.js'
   ],
 
   //used framework

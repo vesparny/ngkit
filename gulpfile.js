@@ -3,6 +3,8 @@
 var config = require('./build/build.config.js');
 var karmaConfig = require('./build/karma.config.js');
 var protractorConfig = require('./build/protractor.config.js');
+var browserify = require('browserify');
+var transform = require('vinyl-transform');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
@@ -67,8 +69,7 @@ gulp.task('templates', function() {
 
 //generate css files from scss sources
 gulp.task('sass', function() {
-  return gulp.src(config.mainScss)
-    .pipe($.rubySass())
+  return $.rubySass(config.mainScss)
     .on('error', function(err) {
       console.log(err.message);
     })
@@ -85,7 +86,7 @@ gulp.task('build:dist', ['clean'], function(cb) {
 
 //build files for development
 gulp.task('build', ['clean'], function(cb) {
-  runSequence(['sass', 'templates'], cb);
+  runSequence(['sass', 'templates', 'browserify'], cb);
 });
 
 //generate a minified css files, 2 js file, change theirs name to be unique, and generate sourcemaps
@@ -196,7 +197,7 @@ gulp.task('serve', ['build'], function() {
 
   gulp.watch(config.html, reload);
   gulp.watch(config.scss, ['sass', reload]);
-  gulp.watch(config.js, ['jshint']);
+  gulp.watch(config.js, ['jshint', 'browserify', reload]);
   gulp.watch(config.tpl, ['templates', reload]);
   gulp.watch(config.assets, reload);
 });
@@ -207,4 +208,14 @@ gulp.task('serve:dist', ['build:dist'], function() {
     notify: false,
     server: [config.dist]
   });
+});
+
+gulp.task('browserify', function () {
+  var browserified = transform(function(filename) {
+    var b = browserify(filename);
+    return b.bundle();
+  });
+  return gulp.src(['./client/src/**/*.js', '!./client/src/vendor/**/*.js'])
+   .pipe(browserified)
+   .pipe(gulp.dest(config.tmp));
 });
