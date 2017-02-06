@@ -9,8 +9,10 @@
     $urlRouterProvider.otherwise('/');
     $logProvider.debugEnabled(true);
 
-    //BackandProvider.setAnonymousToken('Your Anonymous Token');
-    //BackandProvider.setSignUpToken('Your SignUp Token');
+    //update your app's details
+    BackandProvider.setAppName('bkndkickstart'); //your app name
+    BackandProvider.setAnonymousToken('8b3d7045-7aba-46f9-a19b-daef3c1a4f59'); //Your Anonymous Token
+    BackandProvider.setSignUpToken('95deaeeb-f0ad-4d22-854b-976bc2e7aa15'); //Your SignUp Token
 
     $httpProvider.interceptors.push('httpInterceptor');
     $stateProvider

@@ -5,30 +5,23 @@
 
     var factory = {};
 
-    factory.listOfObjects = function() {
-      return $http({
-        method: 'GET',
-        url: Backand.getApiUrl() + '/1/table/config',
-        params: {
-          pageSize: 200,
-          pageNumber: 1,
-          filter: '[{fieldName:"SystemView", operator:"equals", value: false}]',
-          sort: '[{fieldName:"captionText", order:"asc"}]'
-        }
-      });
+    factory.objectData = function(name, pageSize, pageNumber, sort, filter) {
+      var params = {
+        pageSize: pageSize || 5,
+        pageNumber: pageNumber || 1,
+        filter: filter || '',
+        sort: sort || ''
+      };
+      return Backand.object.getList(name, params);
     };
 
-    factory.objectData = function(name, pageSize, pageNumber, sort, filter) {
-      return $http({
-        method: 'GET',
-        url: Backand.getApiUrl() + '/1/objects/' + name,
-        params: {
-          pageSize: pageSize || 5,
-          pageNumber: pageNumber || 1,
-          filter: filter || '',
-          sort: sort || ''
-        }
-      });
+    factory.signin = function(username, password) {
+
+      return Backand.signin(username, password);
+    };
+
+    factory.signout = function() {
+      return Backand.signout();
     };
 
     return factory;

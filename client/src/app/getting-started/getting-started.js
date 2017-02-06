@@ -12,7 +12,7 @@
         views: {
           '@': {
             templateUrl: 'src/app/getting-started/getting-started.tpl.html',
-            controller: 'GettingStartedCtrl as start'
+            controller: 'GettingStartedCtrl as vm'
           }
         }
       });
@@ -22,60 +22,49 @@
    * @name  gettingStartedCtrl
    * @description Controller
    */
-  function GettingStartedCtrl($log, $state, Backand, BackandService) {
+  function GettingStartedCtrl($log, $state, BackandService) {
 
-    var start = this;
+    var vm = this;
 
     (function init() {
-      start.username = '';
-      start.password = '';
-      start.appName = '';
-      start.objects = null;
-      start.isLoggedIn = false;
-      start.objectData = '{}';
-      start.results = 'Not connected to Backand yet';
-      loadObjects();
+      vm.username = 'start@backand.io';
+      vm.password = 'backand';
+      vm.appName = 'bkndkickstart';
+      vm.objectSelected = 'users';
+      vm.objects = null;
+      vm.isLoggedIn = false;
+      vm.objectData = '{}';
+      vm.results = 'Not connected to Backand yet';
     }());
 
 
-    start.signin = function () {
+    vm.signin = function () {
 
-      Backand.setAppName(start.appName);
-
-      Backand.signin(start.username, start.password)
+      BackandService.signin(vm.username, vm.password)
         .then(
         function () {
-          start.results = 'you are in';
-          loadObjects();
+          vm.results = 'you are in';
+          vm.isLoggedIn = true;
         },
         function (data, status, headers, config) {
           $log.debug('authentication error', data, status, headers, config);
-          start.results = data;
+          vm.results = data;
         }
       );
     };
 
-    start.signout = function (){
-      Backand.signout();
+    vm.signout = function (){
+      BackandService.signout();
       $state.go('root.getting-started',{}, {reload: true});
     };
 
-    function loadObjects() {
-      BackandService.listOfObjects().then(loadObjectsSuccess, errorHandler);
-    }
 
-    function loadObjectsSuccess(list) {
-      start.objects = list.data.data;
-      start.results = 'Objects loaded';
-      start.isLoggedIn = true;
-    }
-
-    start.loadObjectData = function(){
-      BackandService.objectData(start.objectSelected).then(loadObjectDataSuccess, errorHandler);
+    vm.loadObjectData = function(){
+      BackandService.objectData(vm.objectSelected).then(loadObjectDataSuccess, errorHandler);
     };
 
     function loadObjectDataSuccess(ObjectData) {
-      start.objectData = ObjectData.data.data;
+      vm.objectData = ObjectData.data;
     }
 
     function errorHandler(error, message) {
@@ -85,5 +74,5 @@
 
   angular.module('getting-started', [])
     .config(config)
-    .controller('GettingStartedCtrl', ['$log', '$state', 'Backand','BackandService', GettingStartedCtrl]);
+    .controller('GettingStartedCtrl', ['$log', '$state', 'BackandService', GettingStartedCtrl]);
 })();
