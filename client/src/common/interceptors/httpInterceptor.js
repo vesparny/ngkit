@@ -3,9 +3,7 @@
 
   function httpInterceptor($q, $log) {
     return {
-      request: function(config) {
-        return config;
-      },
+
       requestError: function(rejection) {
         $log.debug(rejection);
         return $q.reject(rejection);
