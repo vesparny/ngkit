@@ -5,9 +5,15 @@
     angular.bootstrap(document, ['app']);
   });
 
-  function config($stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
+  function config(BackandProvider, $stateProvider, $urlRouterProvider, $logProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/');
     $logProvider.debugEnabled(true);
+
+    //update your app's details
+    BackandProvider.setAppName('bkndkickstart'); //your app name
+    BackandProvider.setAnonymousToken('8b3d7045-7aba-46f9-a19b-daef3c1a4f59'); //Your Anonymous Token
+    BackandProvider.setSignUpToken('95deaeeb-f0ad-4d22-854b-976bc2e7aa15'); //Your SignUp Token
+
     $httpProvider.interceptors.push('httpInterceptor');
     $stateProvider
       .state('root', {
@@ -25,7 +31,7 @@
   }
 
   function MainCtrl($log) {
-    $log.debug('MainCtrl laoded!');
+    $log.debug('MainCtrl loaded!');
   }
 
   function run($log) {
@@ -34,10 +40,12 @@
 
   angular.module('app', [
       'ui.router',
+      'backand',
       'home',
       'getting-started',
       'common.header',
       'common.footer',
+      'common.services.backand',
       'common.services.data',
       'common.directives.version',
       'common.filters.uppercase',

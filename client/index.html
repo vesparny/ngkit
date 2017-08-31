@@ -1,11 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" ng-controller="MainCtrl">
 
 <head>
   <meta charset="utf-8" />
   <title>angular-kickstart</title>
-  <meta name="description" content="angular-kickstart - speed up your AngularJS development and testing with a great gulpjs build system.
-">
+  <meta name="description" content="angular-kickstart - speed up your AngularJS development and testing with a great gulpjs build system.">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title ng-bind="title"></title>
@@ -31,6 +30,8 @@
   <!-- build:js assets/js/vendor.js -->
   <script type="text/javascript" src="src/vendor/angular/angular.js"></script>
   <script type="text/javascript" src="src/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="src/vendor/backand-vanilla-sdk/dist/backand.js"></script>
+  <script src="src/vendor/backand-angular1-sdk/dist/backand.provider.js"></script>
   <!-- endbuild -->
 
   <!-- build:js assets/js/main.js -->
@@ -41,6 +42,7 @@
 
   <script type="text/javascript" src="src/common/directives/version.js"></script>
   <script type="text/javascript" src="src/common/interceptors/httpInterceptor.js"></script>
+  <script type="text/javascript" src="src/common/services/backandService.js"></script>
   <script type="text/javascript" src="src/common/services/dataService.js"></script>
   <script type="text/javascript" src="src/common/filters/uppercase.js"></script>
 

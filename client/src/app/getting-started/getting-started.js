@@ -12,7 +12,7 @@
         views: {
           '@': {
             templateUrl: 'src/app/getting-started/getting-started.tpl.html',
-            controller: 'GettingStartedCtrl as docs'
+            controller: 'GettingStartedCtrl as vm'
           }
         }
       });
@@ -22,14 +22,57 @@
    * @name  gettingStartedCtrl
    * @description Controller
    */
-  function GettingStartedCtrl($log) {
-    var docs = this;
-    docs.someMethos = function () {
-      $log.debug('I\'m a method');
+  function GettingStartedCtrl($log, $state, BackandService) {
+
+    var vm = this;
+
+    (function init() {
+      vm.username = 'start@backand.io';
+      vm.password = 'backand';
+      vm.appName = 'bkndkickstart';
+      vm.objectSelected = 'users';
+      vm.objects = null;
+      vm.isLoggedIn = false;
+      vm.objectData = '{}';
+      vm.results = 'Not connected to Backand yet';
+    }());
+
+
+    vm.signin = function () {
+
+      BackandService.signin(vm.username, vm.password)
+        .then(
+        function () {
+          vm.results = 'you are in';
+          vm.isLoggedIn = true;
+        },
+        function (data, status, headers, config) {
+          $log.debug('authentication error', data, status, headers, config);
+          vm.results = data;
+        }
+      );
     };
+
+    vm.signout = function (){
+      BackandService.signout();
+      $state.go('root.getting-started',{}, {reload: true});
+    };
+
+
+    vm.loadObjectData = function(){
+      BackandService.objectData(vm.objectSelected).then(loadObjectDataSuccess, errorHandler);
+    };
+
+    function loadObjectDataSuccess(ObjectData) {
+      vm.objectData = ObjectData.data;
+    }
+
+    function errorHandler(error, message) {
+      $log.debug(message, error);
+    }
   }
 
   angular.module('getting-started', [])
     .config(config)
-    .controller('GettingStartedCtrl', GettingStartedCtrl);
+    .controller('GettingStartedCtrl', ['$log', '$state', 'BackandService', GettingStartedCtrl]);
 })();

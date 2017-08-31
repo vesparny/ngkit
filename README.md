@@ -1,19 +1,11 @@
-# [angular-kickstart](http://vesparny.github.io/angular-kickstart/)
-
-[![Build Status](https://secure.travis-ci.org/vesparny/angular-kickstart.svg)](http://travis-ci.org/vesparny/angular-kickstart)
-
-**Brought to you by [Alessandro Arnodo](http://alessandro.arnodo.net) [[@vesparny](https://twitter.com/vesparny)]**
-
-[![Dev dependency status](https://david-dm.org/vesparny/angular-kickstart/dev-status.png)](https://david-dm.org/vesparny/angular-kickstart#info=devDependencies "Dependency status")
+# [backand-angular-kickstart](https://github.com/backand/angular-kickstart/)
 
 **Speed up your [AngularJS](http://angularjs.org) development with a complete and scalable gulpjs based build system that scaffolds the project for you. Just focus on your app, angular-kickstart will take care of the rest.**
 ***
 
-#### See a [working demo](http://vesparny.github.io/angular-kickstart/).
-
 ### What and Why
 
-angular-kickstart is an opinionated kickstart for single page application development with AngularJS. It makes your development and testing easy, keeps the structure of the project consistent and allows you to create a fully optimized production release with ease. After having developed a lot of AngularJS projects I decided to collect here what I've learnt.
+There is no doubt that AngularJS has earned its place as one of the most powerful JavaScript frameworks available. The ability to quickly and sanely create production grade web applications with AngularJS has opened up a whole new frontier of possibilities for developers around the world. With Backand, you can take this to an entirely new level by quickly and painlessly adding a powerful backend to your AngularJS application. Come join us as we take an existing RESTful application and convert it to use Backand's cloud-based services in minutes. We will also show how we can easily customize security, send emails or notifications, apply app rules and call other apps via HTTP. There has never been a better time to build better things faster!
 
 ### Getting started
 
@@ -21,13 +13,18 @@ Install **node.js**. Then **gulp** and **bower** if you haven't yet.
 
     $ npm -g install gulp bower
 
-After that, install angular-kickstart downloading the [latest release](https://github.com/vesparny/angular-kickstart/releases) (or clone the master branch if you want to run the development version). Unzip the project and cd into it, then install bower and npm dependencies, and run the application in development mode.
+After that, install angular-kickstart downloading the [master release](https://github.com/backand/angular-kickstart/archive/master.zip) (or clone the master branch if you want to run the development version). 
+
+    $ git clone https://github.com/backand/angular-kickstart.git
+    $ cd angular-kickstart
+    
+Install bower and npm dependencies, and run the application in development mode.
 
     $ npm install
     $ bower install
     $ gulp serve
 
-You are now ready to go, your applcation is available at **http://127.0.0.1:3000**.
+You are now ready to go, your application is available at **http://127.0.0.1:3000**.
 
 **Every file you add, edit or delete into the `/client` folder will be handled by the build system**.
 
@@ -39,6 +36,7 @@ This task will lint your code, optimize css js and images files, run unit tests.
 
 ### Features
 
+* Backand SDK included, just sign in to your app and the entire back-end is ready.
 * 5 simple task: `gulp serve`,`gulp serve:dist`, `gulp serve:tdd`, `gulp test:unit`, `gulp test:e2e`
 * JavaScript file continuous linting with `jshint`.
 * SASS continuous compiling.
