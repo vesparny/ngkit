@@ -1,0 +1,26 @@
+{
+  "name": "angular-kickstart",
+  "description": "Speed up your AngularJS development whith a great build system.",
+  "main": "",
+  "authors": [
+    "Alessandro Arnodo"
+  ],
+  "license": "MIT",
+  "homepage": "http://alessandro.arnodo.net",
+  "private": true,
+  "ignore": [    
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "materialize": "^0.100.2",
+    "angular": "1.6.9",
+    "angular-animate": "1.6.9",
+    "angular-materialize": "^0.2.2",
+    "font-awesome": "^5.0.10",
+    "angular-ui-router": "^1.0.18"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.6.9"
+  }
+}
