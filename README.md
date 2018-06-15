@@ -79,6 +79,14 @@ A code coverage report will be available inside the `client/test/unit-results`.
 * **gulp test:e2e** - Run end-to-end tests inside the `client/test/e2e` folder with `protractor`. If a test fails, you should find a screenshot of the page inside the `client/test/screenshots` folder.
 **Note that you need to have the application running in order to run e2e tests. You can launch this task from another terminal instance.**
 
+### What is Included
+
+* **AngularJS V.1.6.9** - Most updated version of AngularJS (Angular 1).
+* **Angular-Materialize** - Angular directives for MaterializeCSS Framework.
+* **Angular-ui-router** - Awesome Angular module for route management.
+* **MaterializeCSS** - A modern responsive front-end framework based on Material Design.
+* **Font Awesome V.5** - Awesome icon pack.
+
 ### Contributing
 
 PR and issues reporting are always welcome :)
