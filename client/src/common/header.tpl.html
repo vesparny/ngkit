@@ -1,9 +1,9 @@
-<div class="pure-menu pure-menu-open pure-menu-horizontal">
-  <a class="pure-menu-heading" href="">angular-kickstart <span app-version></span></a>
-  <ul>
-    <li ui-sref-active="pure-menu-selected"><a href ui-sref="root.home">{{ 'home' | uppercase }}</a>
-    </li>
-    <li ui-sref-active="pure-menu-selected"><a href ui-sref="root.getting-started">{{ 'getting started' | uppercase }}</a>
-    </li>
-  </ul>
-</div>
+<nav>
+  <div class="nav-wrapper indigo darken-4">
+    <a href="#" class="brand-logo">angular-kickstart <span app-version></span></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a ui-sref="root.home">{{ 'home' | uppercase }}</a></li>
+      <li><a ui-sref="root.getting-started">{{ 'getting started' | uppercase }}</a></li>
+    </ul>
+  </div>
+</nav>

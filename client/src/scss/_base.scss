@@ -3,15 +3,10 @@
 /* Fonts
    ========================================================================== */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
-html,
-button,
-input,
-select,
-textarea,
-.pure-g [class *= "pure-u"] {
-  font-family: 'Open Sans', sans-serif;
-
+a, a:hover, a:focus, a:active {
+  color: #fff !important;
 }
+
 /* Defaults
    ========================================================================== */
 
